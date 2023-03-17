@@ -29,6 +29,9 @@ public class PredicateEx {
 
 	public static void main(String[] args) {
 
+		// interface Predicate<T> 
+		// public boolean test(T t);
+		
 		Predicate<Integer> p = (e) -> e % 2 == 0;
 
 		System.out.println(p.test(10));
