@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author abc
+ *
+ */
+module StreamAndLambda {
+}
