@@ -1,7 +1,10 @@
 package com.predifiendFI;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
@@ -13,6 +16,10 @@ class Student {
 	Student(String name, int marks) {
 		this.marks = marks;
 		this.name = name;
+	}
+	 Student getObject()
+	{
+		return this;
 	}
 
 }
@@ -75,9 +82,22 @@ public class FunctionFIEx {
 			System.out.println("name " + s.name + " Grade " + f3.apply(s));
 		}
 
+		
+		//function chaining is possible
+		//f1.andThen(f2).apply(i) - >first f1 then followed by f2
+		
+		//f1.compose(f2).apply(i) -> first f2 
+		
 		// need to store name in map as a key and there grade in value
-		stuList.stream().map((s) -> f3.apply(s)).collect(Collectors.toList());
-
+		//stuList.stream().map((s) -> f3.apply(s)).collect(Collectors.toMap(Student::getObject,"123",(x,y)->x+","+y+",",LinkedHashMap::new));
+		
+		
+		Map<Student, String> map = stuList.stream().collect(Collectors.toMap(Function.identity(), (s) -> f3.apply(s)));
+	
+		map.entrySet().stream().forEach(val->System.out.println(val.getValue()+" "+val.getKey()));
+		
+		
+		
 	}
 
 }
