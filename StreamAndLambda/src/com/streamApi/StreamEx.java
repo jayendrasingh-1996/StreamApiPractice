@@ -12,12 +12,14 @@ public class StreamEx {
 
 		Stream<String> names = Stream.empty();
 
+		
+		System.out.println(names.count());
 		Collection<String> name = Arrays.asList("Mahesh", "Ramesh", "upesh");
 
-		name.add("Jay");
-		name.add("Ajay");
-		name.add("Vijay");
-		name.add("XXX");
+//		name.add("Jay");
+//		name.add("Ajay");
+//		name.add("Vijay");
+//		name.add("XXX");
 
 //		long count = name.stream().count();
 
